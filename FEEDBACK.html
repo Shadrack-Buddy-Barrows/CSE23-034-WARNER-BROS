@@ -26,7 +26,56 @@
         
         <style>
           /* CSS styling for the form */
-          body {
+            .container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #000;
+}
+
+.hidden {
+    display: none;
+}
+
+#successMessage {
+    text-align: center;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+    padding: 10px;
+    border-radius: 5px;
+}
+          /*body {
             font-family: Arial, sans-serif;
              background-color: #fff;
             }
@@ -80,11 +129,11 @@ h2 {
     text-transform: uppercase;
     text-decoration: solid;
 
-}
+}*/
         </style>
 
         <script>
-            const form = document.getElementById('feedback-form');
+           /* const form = document.getElementById('feedback-form');
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -96,6 +145,24 @@ form.addEventListener('submit', (e) => {
 
     // You can add your own logic here to handle the form submission
     console.log(`Name: ${name}, Surname: ${surname}, Age: ${age}, Email: ${email}, Feedback: ${feedback}`);
+});*/
+        document.getElementById("feedbackForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    var formData = new FormData(this);
+    var feedbackData = {};
+    formData.forEach(function(value, key){
+        feedbackData[key] = value;
+    });
+    var jsonData = JSON.stringify(feedbackData);
+    
+    // Simulate sending feedback data to the server
+    setTimeout(function() {
+        document.getElementById("feedbackForm").reset();
+        document.getElementById("successMessage").classList.remove("hidden");
+        setTimeout(function() {
+            document.getElementById("successMessage").classList.add("hidden");
+        }, 3000);
+    }, 1000);
 });
 
         </script>
@@ -140,7 +207,27 @@ form.addEventListener('submit', (e) => {
 
 <!--The user feedback form-->
 <h2>Give Us Your Thoughts</h2>
-    <form id="feedback-form">
+       <div class="container">
+        <form id="feedbackForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="1" required>
+            
+            <label for="feedback">Feedback:</label>
+            <textarea id="feedback" name="feedback" rows="4" required></textarea>
+            
+            <button type="submit">Submit</button>
+        </form>
+        <div id="successMessage" class="hidden">
+            <p>Thank you for your feedback!</p>
+        </div>
+    </div>
+   <!-- <form id="feedback-form">
         <fieldset>
             <legend>Personal Information</legend>
             <label for="name">Name:</label>
@@ -161,7 +248,7 @@ form.addEventListener('submit', (e) => {
         <button class="btn" type="reset">Reset</button>
     </form>
 
-<!--End Of Feedback form-->
+<!--End Of Feedback form-->-->
 
 <!--the footer section-->
    
