@@ -75,77 +75,11 @@ button:hover {
     padding: 10px;
     border-radius: 5px;
 }
-          /*body {
-            font-family: Arial, sans-serif;
-             background-color: #fff;
-            }
-
-          fieldset {
-            border: none;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
-}
-
-legend {
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-label {
-    display: block;
-    margin-bottom: 10px;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #000;
-}
-
-button[type="submit"], button[type="reset"] {
-    background-color: #000;
-    color: #fff;
-    padding: 10px 20px;
-    border: 1px solid #000;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 10px;
-}
-
-button[type="submit"]:hover, button[type="reset"]:hover {
-    background-color: #fff;
-}
-h2 {
-    font-family: 'Brush Script', sans-serif;
-    font-size: 24px;
-    color: #000;
-    border-left: 2px solid #000 ;
-    padding: 10px 0;
-    margin-bottom: 20px;
-    font-weight: bolder;
-    border-spacing: 5px;
-    text-transform: uppercase;
-    text-decoration: solid;
-
-}*/
+        
+        
         </style>
 
         <script>
-           /* const form = document.getElementById('feedback-form');
-
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    const surname = document.getElementById('surname').value;
-    const age = document.getElementById('age').value;
-    const email = document.getElementById('email').value;
-    const feedback = document.getElementById('feedback').value;
-
-    // You can add your own logic here to handle the form submission
-    console.log(`Name: ${name}, Surname: ${surname}, Age: ${age}, Email: ${email}, Feedback: ${feedback}`);
-});*/
         document.getElementById("feedbackForm").addEventListener("submit", function(event) {
     event.preventDefault();
     var formData = new FormData(this);
